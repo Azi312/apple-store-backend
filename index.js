@@ -4,7 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config({ path: '.env.local' })
 
-import { ItemsController } from './controllers/index.js'
+import { ProductsController } from './controllers/index.js'
 
 mongoose
 	.connect(process.env.MONGODB_URI)
@@ -21,8 +21,8 @@ const port = 3001
 app.use(express.json())
 app.use(cors())
 
-app.get('/items', ItemsController.getAll)
-app.get('/items/:id', ItemsController.getById)
+app.get('/products', ProductsController.getAll)
+app.get('/products/:id', ProductsController.getById)
 
 app.listen(process.env.PORT || 3001, err => {
 	if (err) {

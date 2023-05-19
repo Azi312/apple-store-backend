@@ -1,4 +1,4 @@
-import Item from '../models/Item.js'
+import Product from '../models/Products.js'
 
 export const getAll = async (req, res) => {
 	try {
@@ -38,7 +38,7 @@ export const getAll = async (req, res) => {
 
 		const sortOrder = order === 'desc' ? -1 : 1
 
-		const itemsCount = await Item.countDocuments(filter)
+		const itemsCount = await Product.countDocuments(filter)
 
 		const totalPages = Math.ceil(itemsCount / _limit)
 
@@ -50,7 +50,7 @@ export const getAll = async (req, res) => {
 
 		const startIndex = (_page - 1) * _limit
 
-		const items = await Item.find(filter)
+		const items = await Product.find(filter)
 			.sort({ [sortById]: sortOrder })
 			.limit(_limit)
 			.skip(startIndex)
@@ -67,7 +67,7 @@ export const getAll = async (req, res) => {
 export const getById = async (req, res) => {
 	try {
 		const productId = req.params.id
-		await Item.findById(productId).then((product, err) => {
+		await Product.findById(productId).then((product, err) => {
 			if (err) {
 				return res.status(500).json({ error: 'Server error' })
 			}

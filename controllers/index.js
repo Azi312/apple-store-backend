@@ -1,1 +1,1 @@
-export * as ItemsController from './ItemsController.js'
+export * as ProductsController from './ProductsController.js'

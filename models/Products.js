@@ -16,7 +16,7 @@ const colorsSchema = new mongoose.Schema({
 	images: [String],
 })
 
-const itemSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
 	id: Number,
 	name: String,
 	category: Number,
@@ -28,4 +28,4 @@ const itemSchema = new mongoose.Schema({
 	colors: [colorsSchema],
 })
 
-export default mongoose.model('Item', itemSchema)
+export default mongoose.model('Product', productSchema)
